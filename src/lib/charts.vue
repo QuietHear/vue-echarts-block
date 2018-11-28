@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: "chart"
+        name: "charts"
     }
 </script>
 

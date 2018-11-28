@@ -6,11 +6,11 @@
 * @LastEditors: aFei
 * @LastEditTime: 2018-11-28 16:18:20
 */
-import chart from './chart';
+import charts from './chart';
 
 const comment = {
     install(Vue) {
-        Vue.component('chart', chart);
+        Vue.component('charts', charts);
     },
 };
 if (typeof window !== 'undefined' && window.Vue) {
