@@ -6,8 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-charts.js',
-    library: 'VueCharts',
+    filename: 'vue-charts-block.js',
+    library: 'VueChartsBlock',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },

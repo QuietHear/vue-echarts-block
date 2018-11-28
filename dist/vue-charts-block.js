@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("VueCharts", [], factory);
+		define("VueChartsBlock", [], factory);
 	else if(typeof exports === 'object')
-		exports["VueCharts"] = factory();
+		exports["VueChartsBlock"] = factory();
 	else
-		root["VueCharts"] = factory();
+		root["VueChartsBlock"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -11709,4 +11709,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=vue-charts.js.map
+//# sourceMappingURL=vue-charts-block.js.map
