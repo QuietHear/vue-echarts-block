@@ -6,8 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-language-switch.js',
-    library: 'VueLanguageSwitch',
+    filename: 'vue-charts.js',
+    library: 'VueCharts',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },

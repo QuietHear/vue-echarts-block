@@ -17,9 +17,7 @@
   ],
   "keywords": [
     "Vue",
-    "Element",
-    "i18n",
-    "vue-router"
+    "Echarts"
   ],
   "homepage": "https://github.com/QuietHear/ele-nav",
   "dependencies": {
