@@ -4,13 +4,13 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-11-29 10:48:20
+* @LastEditTime: 2018-11-29 15:17:57
 */
-import VueChartsBlock from './VueChartsBlock';
+import vueChartsBlock from './vueChartsBlock';
 
 const comment = {
     install(Vue) {
-        Vue.component('VueChartsBlock', VueChartsBlock);
+        Vue.component('vueChartsBlock', vueChartsBlock);
     },
 };
 if (typeof window !== 'undefined' && window.Vue) {

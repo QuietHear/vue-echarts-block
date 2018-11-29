@@ -4,10 +4,10 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-11-29 14:38:01
+* @LastEditTime: 2018-11-29 15:48:25
 */
 <template>
-  <div :id="id" style="height: 800px;"></div>
+  <div :id="id" class="vueChartsBlock extra"></div>
 </template>
 
 <script>
@@ -25,9 +25,8 @@
       id: {
         required: true
       },
-      type: {
-        type: String,
-        required: true
+      legend: {
+        type: Object
       },
       optionData: {
         type: Object,
@@ -51,7 +50,15 @@
       this.charts = echarts.init(document.getElementById(this.id));
       this.charts.setOption({
         legend: {
-          data: this.optionData.legend
+          show: this.legend.data === undefined || this.legend.data.length === 0 ? false : true,
+          data: this.legend.data,
+          x: this.legend.x === undefined ? 'center' : this.legend.x,
+          itemWidth: this.legend.itemWidth === undefined ? 12 : this.legend.itemWidth,
+          itemHeight: this.legend.itemHeight === undefined ? 12 : this.legend.itemHeight,
+          textStyle: {
+            color: this.legend.color === undefined ? '#000' : this.legend.color,
+            fontSize: this.legend.fontSize === undefined ? 12 : this.legend.fontSize
+          }
         },
         xAxis: {
           type: 'category',
