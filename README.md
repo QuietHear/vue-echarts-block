@@ -17,7 +17,7 @@
 ### 4. 使用
 >
 	<vue-charts-block :id="id" :legend="item.legend" 
-	:optionData="optionData">
+	:series="series">
 	</vue-charts-block>
 	// 数据示例
 	legend:{ // 图例
