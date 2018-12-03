@@ -4,7 +4,7 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-12-03 14:11:57
+* @LastEditTime: 2018-12-03 14:31:34
 */
 <template>
   <div :id="id" class="vueChartsBlock extra"></div>
@@ -87,6 +87,12 @@
       color: {
         type: Array
       },
+      xAxis: {
+        type: Object,
+        default: () => {
+          return {};
+        }
+      },
       optionData: {
         type: Object,
         required: true
@@ -122,7 +128,7 @@
         },
         // 数据提示框
         tooltip: {
-          show: this.tooltip.show === undefined ? false : this.tooltip.show,
+          show: this.tooltip.show === undefined ? true : this.tooltip.show,
           trigger: this.tooltip.trigger === undefined ? 'item' : this.tooltip.trigger,
           formatter: this.tooltip.formatter === undefined ? null : this.tooltip.formatter,
           axisPointer: {
@@ -179,9 +185,10 @@
           '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
           '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
         ] : this.color,
+        // 横坐标
         xAxis: {
           type: 'category',
-          data: this.optionData.xAxis
+          data: this.xAxis.data === undefined ? [] : this.xAxis.data
         },
         yAxis: {
           type: 'value'

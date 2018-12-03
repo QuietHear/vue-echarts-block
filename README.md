@@ -17,7 +17,6 @@
 ### 4. 使用
 >
 	<vue-charts-block :id="id" :legend="item.legend" 
-	:tooltip="item.tooltip" :toolbox="item.toolbox" 
 	:optionData="optionData">
 	</vue-charts-block>
 	// 数据示例
@@ -30,7 +29,7 @@
 		fontSize: 12, // 图例文字字号，默认12
 	},
 	tooltip:{ // 数据提示框
-		show: true, // 是否展示，默认false
+		show: true, // 是否展示，默认true
 		trigger: 'axis', // 触发方式('item','axis')，默认'item'
 		formatter:'', // 提示内容模板，abcde对应值具体查看官网，默认null
 		axisPointer:{ // 提示中轴线
@@ -59,8 +58,11 @@
 	},
 	calculable:false, // 拖拽重计算，默认false
 	color:[], // 坐标轴色盘值，默认下同预设20种颜色
+	xAxis:{ // 横坐标
+
+	},
 	optionData:{
-		xAxis:[], // 横坐标数据
+
 	}
 >
 
@@ -70,6 +72,8 @@
 > * 数据提示框设置:*tooltip*-->Object;非必传
 > * 工具箱设置:*toolbox*-->Object;非必传
 > * 拖拽重计算设置:*calculable*-->Boolean;非必传
+> * 坐标轴色盘值设置:*color*-->Array;非必传
+> * 横坐标设置:*xAxis*-->Object;非必传
 > * 不同类型图标对应数据:*optionData*-->Object;必传
 
 ### 6. 样式
