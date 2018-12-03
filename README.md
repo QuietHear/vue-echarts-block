@@ -59,11 +59,9 @@
 	calculable:false, // 拖拽重计算，默认false
 	color:[], // 坐标轴色盘值，默认下同预设20种颜色
 	xAxis:{ // 横坐标
-
+		data:[] // 横坐标数据
 	},
-	optionData:{
-
-	}
+	series:[], // 图表数据
 >
 
 ### 5. 参数
@@ -74,7 +72,7 @@
 > * 拖拽重计算设置:*calculable*-->Boolean;非必传
 > * 坐标轴色盘值设置:*color*-->Array;非必传
 > * 横坐标设置:*xAxis*-->Object;非必传
-> * 不同类型图标对应数据:*optionData*-->Object;必传
+> * 图表对应数据:*series*-->Array;必传
 
 ### 6. 样式
 > * `.vueChartsBlock.extra`样式中设置了组件的尺寸，可自行覆盖

@@ -4,7 +4,7 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-12-03 14:31:34
+* @LastEditTime: 2018-12-03 15:51:20
 */
 <template>
   <div :id="id" class="vueChartsBlock extra"></div>
@@ -82,10 +82,19 @@
         }
       },
       calculable: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       color: {
-        type: Array
+        type: Array,
+        default: () => {
+          return [
+            '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+            '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+            '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
+            '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+          ];
+        }
       },
       xAxis: {
         type: Object,
@@ -93,8 +102,11 @@
           return {};
         }
       },
-      optionData: {
-        type: Object,
+      series: {
+        type: Array,
+        default: () => {
+          return [];
+        },
         required: true
       }
     },
@@ -177,23 +189,20 @@
           }
         },
         // 拖拽重计算
-        calculable: this.calculable === undefined ? false : this.calculable,
+        calculable: this.calculable,
         // 坐标轴色盘值
-        color: this.color === undefined ? [
-          '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
-          '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
-          '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
-          '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
-        ] : this.color,
+        color: this.color,
         // 横坐标
         xAxis: {
           type: 'category',
           data: this.xAxis.data === undefined ? [] : this.xAxis.data
         },
-        yAxis: {
+        // 纵坐标
+        yAxis:{
           type: 'value'
         },
-        series: this.optionData.series
+        // 数据
+        series: this.series
       }, true);
       window.addEventListener('resize', vue.change);
     },
