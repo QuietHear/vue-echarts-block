@@ -57,7 +57,8 @@
 		saveAsImage: true, // 保存图片，默认false
 		saveAsImageType: 'png' // 保存图片的格式('png','jpeg','base64')，默认'png'
 	},
-	calculable:false, // 拖拽重计算
+	calculable:false, // 拖拽重计算，默认false
+	color:[], // 坐标轴色盘值，默认下同预设20种颜色
 	optionData:{
 		xAxis:[], // 横坐标数据
 	}
