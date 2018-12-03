@@ -4,7 +4,7 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-12-03 11:49:16
+* @LastEditTime: 2018-12-03 14:11:57
 */
 <template>
   <div :id="id" class="vueChartsBlock extra"></div>
@@ -12,12 +12,50 @@
 
 <script>
   let echarts = require('echarts/lib/echarts');
-  require('echarts/lib/chart/bar');
-  require('echarts/lib/chart/line');
+  require("echarts/lib/component/dataset");
+  require("echarts/lib/chart/line");
+  require("echarts/lib/chart/bar");
   require("echarts/lib/chart/pie");
-  require('echarts/lib/component/tooltip');
-  require('echarts/lib/component/toolbox');
-  require('echarts/lib/component/legend');
+  require("echarts/lib/chart/scatter");
+  require("echarts/lib/chart/radar");
+  require("echarts/lib/chart/map");
+  require("echarts/lib/chart/tree");
+  require("echarts/lib/chart/treemap");
+  require("echarts/lib/chart/graph");
+  require("echarts/lib/chart/gauge");
+  require("echarts/lib/chart/funnel");
+  require("echarts/lib/chart/parallel");
+  require("echarts/lib/chart/sankey");
+  require("echarts/lib/chart/boxplot");
+  require("echarts/lib/chart/candlestick");
+  require("echarts/lib/chart/effectScatter");
+  require("echarts/lib/chart/lines");
+  require("echarts/lib/chart/heatmap");
+  require("echarts/lib/chart/pictorialBar");
+  require("echarts/lib/chart/themeRiver");
+  require("echarts/lib/chart/sunburst");
+  require("echarts/lib/chart/custom");
+  require("echarts/lib/component/graphic");
+  require("echarts/lib/component/grid");
+  require("echarts/lib/component/legendScroll");
+  require("echarts/lib/component/tooltip");
+  require("echarts/lib/component/axisPointer");
+  require("echarts/lib/component/polar");
+  require("echarts/lib/component/geo");
+  require("echarts/lib/component/parallel");
+  require("echarts/lib/component/singleAxis");
+  require("echarts/lib/component/brush");
+  require("echarts/lib/component/calendar");
+  require("echarts/lib/component/title");
+  require("echarts/lib/component/dataZoom");
+  require("echarts/lib/component/visualMap");
+  require("echarts/lib/component/markPoint");
+  require("echarts/lib/component/markLine");
+  require("echarts/lib/component/markArea");
+  require("echarts/lib/component/timeline");
+  require("echarts/lib/component/toolbox");
+  require("zrender/lib/vml/vml");
+  require("zrender/lib/svg/svg");
 
   export default {
     name: "VueChartsBlock",
@@ -42,6 +80,9 @@
         default: () => {
           return {show: false};
         }
+      },
+      calculable: {
+        type: Boolean
       },
       optionData: {
         type: Object,
@@ -103,25 +144,31 @@
         // 工具箱
         toolbox: {
           show: this.toolbox.show === undefined ? false : this.toolbox.show,
-          mark: {
-            show: this.toolbox.mark === undefined ? false : this.toolbox.mark
-          },
-          dataZoom: {
-            show: this.toolbox.dataZoom === undefined ? false : this.toolbox.dataZoom
-          },
-          dataView: {
-            show: this.toolbox.dataView === undefined ? false : this.toolbox.dataView
-          },
-          magicType: {
-            show: this.toolbox.magicType === undefined ? false : this.toolbox.magicType
-          },
-          restore: {
-            show: this.toolbox.restore === undefined ? false : this.toolbox.restore
-          },
-          saveAsImage: {
-            show: this.toolbox.saveAsImage === undefined ? false : this.toolbox.saveAsImage
+          feature: {
+            mark: {
+              show: this.toolbox.mark === undefined ? false : this.toolbox.mark
+            },
+            dataZoom: {
+              show: this.toolbox.dataZoom === undefined ? false : this.toolbox.dataZoom
+            },
+            dataView: {
+              show: this.toolbox.dataView === undefined ? false : this.toolbox.dataView
+            },
+            magicType: {
+              show: this.toolbox.magicType === undefined ? false : this.toolbox.magicType,
+              type: this.toolbox.magicTypeAll === undefined ? [] : this.toolbox.magicTypeAll
+            },
+            restore: {
+              show: this.toolbox.restore === undefined ? false : this.toolbox.restore
+            },
+            saveAsImage: {
+              show: this.toolbox.saveAsImage === undefined ? false : this.toolbox.saveAsImage,
+              type: this.toolbox.saveAsImageType === 'png' ? false : this.toolbox.saveAsImageType,
+            }
           }
         },
+        // 拖拽重计算
+        calculable: this.calculable === undefined ? false : this.calculable,
         xAxis: {
           type: 'category',
           data: this.optionData.xAxis
