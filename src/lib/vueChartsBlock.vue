@@ -125,7 +125,7 @@
     mounted() {
       let vue = this; // 定义闭包变量
       this.charts = echarts.init(document.getElementById(this.id));
-      this.charts.setOption({
+      let config = {
         // 图例
         legend: {
           show: this.legend.data === undefined || this.legend.data.length === 0 ? false : true,
@@ -192,18 +192,24 @@
         calculable: this.calculable,
         // 坐标轴色盘值
         color: this.color,
-        // 横坐标
-        xAxis: {
-          type: 'category',
-          data: this.xAxis.data === undefined ? [] : this.xAxis.data
-        },
         // 纵坐标
-        yAxis:{
+        yAxis: {
           type: 'value'
         },
         // 数据
         series: this.series
-      }, true);
+      };
+      if (this.xAxis.data !== undefined) {
+        config.xAxis = {// 横坐标
+          type: 'category',
+          data: this.xAxis.data
+        }
+      }
+      else{
+        config.xAxis = {scale:false,show:false};
+        config.yAxis.show = false;
+      }
+      this.charts.setOption(config, true);
       window.addEventListener('resize', vue.change);
     },
     beforeDestroy() {
