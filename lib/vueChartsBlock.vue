@@ -4,88 +4,46 @@
 */
 /*
 * @LastEditors: aFei
-* @LastEditTime: 2018-12-03 15:51:20
+* @LastEditTime: 2019-04-30 10:44:13
 */
 <template>
-  <div :id="id" class="vueChartsBlock extra"></div>
+  <div :id="id" class="vue-charts-block" :class=cname></div>
 </template>
 
 <script>
-  let echarts = require('echarts/lib/echarts');
-  require("echarts/lib/component/dataset");
-  require("echarts/lib/chart/line");
-  require("echarts/lib/chart/bar");
-  require("echarts/lib/chart/pie");
-  require("echarts/lib/chart/scatter");
-  require("echarts/lib/chart/radar");
-  require("echarts/lib/chart/map");
-  require("echarts/lib/chart/tree");
-  require("echarts/lib/chart/treemap");
-  require("echarts/lib/chart/graph");
-  require("echarts/lib/chart/gauge");
-  require("echarts/lib/chart/funnel");
-  require("echarts/lib/chart/parallel");
-  require("echarts/lib/chart/sankey");
-  require("echarts/lib/chart/boxplot");
-  require("echarts/lib/chart/candlestick");
-  require("echarts/lib/chart/effectScatter");
-  require("echarts/lib/chart/lines");
-  require("echarts/lib/chart/heatmap");
-  require("echarts/lib/chart/pictorialBar");
-  require("echarts/lib/chart/themeRiver");
-  require("echarts/lib/chart/sunburst");
-  require("echarts/lib/chart/custom");
-  require("echarts/lib/component/graphic");
-  require("echarts/lib/component/grid");
-  require("echarts/lib/component/legendScroll");
-  require("echarts/lib/component/tooltip");
-  require("echarts/lib/component/axisPointer");
-  require("echarts/lib/component/polar");
-  require("echarts/lib/component/geo");
-  require("echarts/lib/component/parallel");
-  require("echarts/lib/component/singleAxis");
-  require("echarts/lib/component/brush");
-  require("echarts/lib/component/calendar");
-  require("echarts/lib/component/title");
-  require("echarts/lib/component/dataZoom");
-  require("echarts/lib/component/visualMap");
-  require("echarts/lib/component/markPoint");
-  require("echarts/lib/component/markLine");
-  require("echarts/lib/component/markArea");
-  require("echarts/lib/component/timeline");
-  require("echarts/lib/component/toolbox");
-  require("zrender/lib/vml/vml");
-  require("zrender/lib/svg/svg");
-
   export default {
     name: "VueChartsBlock",
     props: {
-      id: {
+      id: { // 图表ID
         required: true
       },
-      legend: {
+      cname:{ // 额外class
+        type: String,
+        default: 'extra'
+      },
+      legend: { // 图例设置
         type: Object,
         default: () => {
           return {show: false};
         }
       },
-      tooltip: {
+      tooltip: { // 数据提示框设置
         type: Object,
         default: () => {
           return {show: false};
         }
       },
-      toolbox: {
+      toolbox: { // 工具箱设置
         type: Object,
         default: () => {
           return {show: false};
         }
       },
-      calculable: {
+      calculable: { // 拖拽重计算设置
         type: Boolean,
         default: false
       },
-      color: {
+      color: { // 坐标轴色盘值设置
         type: Array,
         default: () => {
           return [
@@ -96,13 +54,19 @@
           ];
         }
       },
-      xAxis: {
+      xAxis: { // 横坐标设置
         type: Object,
         default: () => {
           return {};
         }
       },
-      series: {
+      yAxis: { // 纵坐标设置
+        type: Object,
+        default: () => {
+          return {type: 'value'};
+        }
+      },
+      series: { // 图表对应数据
         type: Array,
         default: () => {
           return [];
@@ -120,11 +84,9 @@
         this.charts.resize();//Echarts重绘方法
       }
     },
-    created() {
-    },
     mounted() {
-      let vue = this; // 定义闭包变量
-      this.charts = echarts.init(document.getElementById(this.id));
+      let it = this; // 定义闭包变量
+      this.charts = this.$echarts.init(document.getElementById(this.id));
       let config = {
         // 图例
         legend: {
@@ -193,9 +155,7 @@
         // 坐标轴色盘值
         color: this.color,
         // 纵坐标
-        yAxis: {
-          type: 'value'
-        },
+        yAxis: this.yAxis,
         // 数据
         series: this.series
       };
@@ -210,22 +170,22 @@
         config.yAxis.show = false;
       }
       this.charts.setOption(config, true);
-      window.addEventListener('resize', vue.change);
+      window.addEventListener('resize', it.change);
     },
     beforeDestroy() {
-      let vue = this;
-      window.removeEventListener('resize', vue.change);
+      let it = this;
+      window.removeEventListener('resize', it.change);
     }
   }
 </script>
 
 <!--基础样式-->
 <style scoped>
-  @import "VueChartsBlock.css";
+  @import "style/vueChartsBlock.css";
 </style>
 
 <!--样式扩展-->
 <style scoped>
   /*必需的扩展*/
-  @import "chartExtra.css";
+  @import "style/chartExtra.css";
 </style>

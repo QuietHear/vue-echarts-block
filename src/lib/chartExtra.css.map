@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEE,qBAAQ;EACN,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;EACd,MAAM,EAAE,KAAK",
-"sources": ["chartExtra.scss"],
-"names": [],
-"file": "chartExtra.css"
-}

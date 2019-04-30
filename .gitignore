@@ -2,8 +2,6 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-.sass-cache/
-# Editor directories and files
 .idea
 *.suo
 *.ntvs*

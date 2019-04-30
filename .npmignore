@@ -3,7 +3,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 src/lang/
-# Editor directories and files
 .idea
 *.suo
 *.ntvs*
@@ -12,5 +11,7 @@ src/lang/
 *.tgz
 *.html
 package-lock.json
+lib/
 webpack.config.js
 .babelrc
+.editorconfig

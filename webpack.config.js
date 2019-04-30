@@ -2,11 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './lib/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-charts-block.js',
+    filename: 'vue-charts-block.min.js',
     library: 'vueChartsBlock',
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -19,11 +19,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {},
-          // other vue-loader options go here
-        },
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
