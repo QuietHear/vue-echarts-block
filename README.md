@@ -4,11 +4,14 @@
 	npm i vue-charts-block
 
 ## 0. 依赖组件
-* echarts（引入到全局中且名字叫$echarts）
+* 安装依赖 `npm install --save echarts`
+> 
+	import echarts from 'echarts'
+	Vue.prototype.$echarts = echarts;
 
 ## 1. 参数
 * `id`：图表ID-->任意类型;必传
-* `cname`：自定义class-->String;非必传;默认*'extra'*
+* `cname`：自定义class-->String;非必传;默认*'charts-extra'*
 * `series`：图表对应数据-->Array;必传
 * `legend`：图例设置-->Object;非必传，不传时或legend.data无数据不展示
 >
@@ -61,7 +64,7 @@
 * `yAxis`：纵坐标设置-->Object;非必传
 
 ### 2. 自定义class（demo）
-	.extra {
+	.charts-extra {
 	  width: 90%;
 	  margin: 0 auto;
 	  height: 400px;
