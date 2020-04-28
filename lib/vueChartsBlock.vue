@@ -95,7 +95,6 @@
     mounted() {
       let it = this; // 定义闭包变量
       this.charts = this.$echarts.init(document.getElementById(this.id));
-
       // let config = {
       //   // 图例
       //   legend: {
