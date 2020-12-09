@@ -1,3 +1,7 @@
+/*
+ * @LastEditors: afei
+ * @LastEditTime: 2020-12-09 12:34:35
+*/
 var path = require('path');
 var webpack = require('webpack');
 
@@ -28,9 +32,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
           name: '[name].[ext]',
+          limit: 9999999,
+          esModule: false,
         },
       },
     ],
