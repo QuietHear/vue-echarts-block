@@ -1,4 +1,4 @@
-# echarts vue版组件
+# echarts组件 vue版
 
 ## 安装
 	npm i vue-charts-block
@@ -11,18 +11,11 @@
 
 ### 1. 参数
 * `id`：图表ID-->任意类型;必传
-* `cname`：自定义class-->String;非必传;默认*'charts-extra'*
+* `cname`：自定义class-->String;非必传;
 * `option`：图表配置数据-->Object;必传
 * `seriesClick`：曲线上点击事件-->Function;非必传
 
-### 2. 自定义class（demo）
-	.charts-extra {
-	  width: 90%;
-	  margin: 0 auto;
-	  height: 400px;
-	}
-
-### 3. 示例数据
+### 2. 示例数据
 	option: {
 	  tooltip: {
 	    trigger: 'axis'
