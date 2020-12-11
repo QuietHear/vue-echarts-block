@@ -4,14 +4,14 @@
 	npm i vue-charts-block
 
 ### 0. 依赖组件
-* 安装依赖 `npm install --save echarts`
+* 安装依赖 `npm install echarts`
 > 
 	import echarts from 'echarts'
 	Vue.prototype.$echarts = echarts;
 
 ### 1. 参数
 * `id`：图表ID-->任意类型;必传
-* `cname`：自定义class-->String;非必传;
+* `cname`：自定义class-->String;非必传
 * `option`：图表配置数据-->Object;必传
 * `seriesClick`：曲线上点击事件-->Function;非必传
 
