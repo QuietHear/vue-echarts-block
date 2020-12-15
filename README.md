@@ -13,7 +13,7 @@
 * `id`：图表ID-->任意类型;必传
 * `cname`：自定义class-->String;非必传
 * `option`：图表配置数据-->Object;必传
-* `seriesClick`：曲线上点击事件-->Function;非必传
+* `series-click`：曲线上点击事件-->Function;非必传
 
 ### 2. 示例数据
 	option: {
