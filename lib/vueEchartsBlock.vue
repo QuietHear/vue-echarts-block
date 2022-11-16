@@ -3,16 +3,16 @@
 * @Date: 2018-11-28 16:13:11
 */
 /*
- * @LastEditors: afei
- * @LastEditTime: 2020-12-11 10:19:05
+ * @LastEditors: aFei
+ * @LastEditTime: 2022-11-16 16:43:30
 */
 <template>
-  <div :id="id" :class="['vue-charts-block', cname]"></div>
+  <div :id="id" :class="['vue-echarts-block', cname]"></div>
 </template>
 
 <script>
 export default {
-  name: "VueChartsBlock",
+  name: "vueEchartsBlock",
   props: {
     id: {
       // 图表ID
@@ -204,5 +204,5 @@ export default {
 
 <!--基础样式-->
 <style scoped>
-@import "style/vueChartsBlock.css";
+@import "style/vueEchartsBlock.css";
 </style>

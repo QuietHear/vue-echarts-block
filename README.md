@@ -1,21 +1,31 @@
-# echarts组件 vue版
+# echarts组件（vue2版）
+[**vue3版本**](https://github.com/QuietHear/vue-echarts-block-plus '浏览') | ***vue2版本*** 
+
 
 ## 安装
-	npm i vue-charts-block
+	npm i vue-echarts-block
 
-### 0. 依赖组件
+## 使用
+	import vueEchartsBlock from 'vue-echarts-block';
+	
+	Vue.use(vueEchartsBlock);
+
+
+## 0. 依赖组件
 * 安装依赖 `npm install echarts`
 > 
 	import echarts from 'echarts'
 	Vue.prototype.$echarts = echarts;
 
-### 1. 参数
+
+## 1. 参数
 * `id`：图表ID-->任意类型;必传
 * `cname`：自定义class-->String;非必传
 * `option`：图表配置数据-->Object;必传
 * `series-click`：曲线上点击事件-->Function;非必传
 
-### 2. 示例数据
+
+## 2. 示例数据
 	option: {
 	  tooltip: {
 	    trigger: 'axis'

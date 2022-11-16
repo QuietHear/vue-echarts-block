@@ -1,6 +1,6 @@
 /*
- * @LastEditors: afei
- * @LastEditTime: 2020-12-09 12:34:35
+ * @LastEditors: aFei
+ * @LastEditTime: 2022-11-16 16:41:28
 */
 var path = require('path');
 var webpack = require('webpack');
@@ -10,8 +10,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-charts-block.min.js',
-    library: 'vueChartsBlock',
+    filename: 'vue-echarts-block.min.js',
+    library: 'vueEchartsBlock',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
